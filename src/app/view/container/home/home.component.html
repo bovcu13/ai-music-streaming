@@ -14,8 +14,8 @@
                      width="175"
                      imageClass="border-round"></p-image>
             <div class="play-button">
-              <p-button [icon]="audioElement.paused ? 'pi pi-caret-right' : 'pi pi pi-pause'"
-                        (click)="playPauseAudio()"
+              <p-button [icon]="audioElement1.paused ? 'pi pi-caret-right' : 'pi pi pi-pause'"
+                        (click)="playPauseAudio1()"
                         [rounded]="true"
                         size="small"
                         severity="success"></p-button>
@@ -34,7 +34,8 @@
                      width="175"
                      imageClass="border-round"></p-image>
             <div class="play-button">
-              <p-button icon="pi pi-caret-right"
+              <p-button [icon]="audioElement2.paused ? 'pi pi-caret-right' : 'pi pi pi-pause'"
+                        (click)="playPauseAudio2()"
                         [rounded]="true"
                         size="small"
                         severity="success"></p-button>
