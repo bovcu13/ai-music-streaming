@@ -1,18 +1,29 @@
-::ng-deep {
-  .p-splitter {
-    border: none;
-    background: #ffffff;
-    border-radius: 6px;
-    color: #4b5563;
-  }
+.box-color {
+  background: linear-gradient(to bottom, rgba(82, 82, 82, 0.3), rgba(97, 97, 97, 0.1));
+}
 
-  //.p-splitter-horizontal>.p-splitter-gutter>.p-splitter-gutter-handle {
-  //  height: 0px;
-  //  width: 100%;
-  //}
-  //
-  //.p-splitter .p-splitter-gutter {
-  //  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-  //  background: transparent;
-  //}
+.play-box {
+  background: rgba(20, 20, 20, 0.5);
+  color: rgba(255, 255, 255, 0.87);
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  position: relative;
+  transition: background 0.3s ease; /* 添加过渡效果 */
+
+  &:hover {
+    background: rgba(100, 100, 100, 0.3);
+    cursor: pointer;
+  }
+}
+
+.play-button {
+  position: absolute;
+  bottom: 5.5rem;
+  right: 2rem;
+  display: none;
+}
+
+.play-box:hover .play-button {
+  display: block;
+  animation: fadein 0.4s linear;
 }

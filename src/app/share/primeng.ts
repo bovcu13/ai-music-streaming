@@ -10,6 +10,7 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { TagModule } from "primeng/tag";
 import { DataViewModule } from 'primeng/dataview';
 import { SplitterModule } from "primeng/splitter";
+import { ImageModule } from 'primeng/image';
 
 
 export const PRIMENG_MODULES = [
@@ -24,5 +25,6 @@ export const PRIMENG_MODULES = [
   InputGroupAddonModule,
   TagModule,
   DataViewModule,
-  SplitterModule
+  SplitterModule,
+  ImageModule
 ];
