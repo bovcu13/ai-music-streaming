@@ -1,1 +1,50 @@
-<p>menu works!</p>
+<div class="col-12">
+  <div class="flex flex-column">
+    <div class="box p-2">
+      <div class="flex flex-column">
+        <div class="col-12">
+          <p-button label="首頁" icon="pi pi-home mr-3"
+                    styleClass="text-left"
+                    [style]="{ width: '100%' }"></p-button>
+        </div>
+        <div class="col-12">
+          <p-button label="搜尋" icon="pi pi-search mr-3"
+                    styleClass="text-left"
+                    [style]="{ width: '100%' }"></p-button>
+        </div>
+      </div>
+    </div>
+    <div class="box p-2 mt-2 h-screen">
+      <div class="flex flex-column">
+        <div class="col-12">
+          <div class="flex">
+            <div class="flex justify-content-start">
+              <p-button label="你的音樂庫"
+                        [text]="true"
+                        icon="pi pi-inbox mr-3"
+                        styleClass="text-left"></p-button>
+            </div>
+            <div class="ml-auto">
+              <p-button icon="pi pi-plus" [rounded]="true" [text]="true"></p-button>
+              <p-button icon="pi pi-arrow-right" [rounded]="true" [text]="true"></p-button>
+            </div>
+          </div>
+          <div class="flex gap-3 mt-2">
+            <p-button label="播放清單"
+                      [rounded]="true" [style]="{ height: '80%' }"
+                      size="small"
+                      styleClass="text-xs"></p-button>
+            <p-button label="藝人"
+                      [rounded]="true"
+                      size="small" [style]="{ height: '80%' }"
+                      styleClass="text-xs"></p-button>
+            <p-button label="專輯"
+                      [rounded]="true"
+                      size="small" [style]="{ height: '80%' }"
+                      styleClass="text-xs"></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
