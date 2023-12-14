@@ -1,80 +1,81 @@
-<div class="p-1">
-  <div class="flex flex-column h-screen gap-2">
-    <div class="box flex-none p-2">
-      <div class="flex flex-column gap-3">
-        <p-button label="首頁"
-                  [text]="true" icon="pi pi-home mr-3"
-                  styleClass="text-left"
-                  [style]="{ width: '100%' }"></p-button>
-        <p-button label="搜尋"
-                  [text]="true" icon="pi pi-search mr-3"
-                  styleClass="text-left"
-                  [style]="{ width: '100%' }"></p-button>
-      </div>
+<div class="flex flex-column h-screen gap-2">
+  <div class="box flex-none p-2">
+    <div class="flex flex-column gap-3">
+      <p-button label="首頁"
+                [text]="true" icon="pi pi-home mr-3"
+                styleClass="text-left text-white"
+                [style]="{ width: '100%' }"></p-button>
+      <p-button label="搜尋"
+                [text]="true" icon="pi pi-search mr-3"
+                styleClass="text-left text-white"
+                [style]="{ width: '100%' }"></p-button>
     </div>
-    <div class="box flex-grow-1 p-2">
-      <div class="flex flex-column gap-3">
-        <div class="flex flex-none">
-          <div class="flex justify-content-start">
-            <p-button label="你的音樂庫"
-                      [text]="true" icon="pi pi-inbox mr-3"
-                      styleClass="text-left"></p-button>
-          </div>
-          <div class="ml-auto">
-            <p-button icon="pi pi-plus" [rounded]="true" [text]="true"></p-button>
-            <!--              登入時才有-->
-            <!--              <p-button icon="pi pi-arrow-right" [rounded]="true" [text]="true"></p-button>-->
-          </div>
+  </div>
+  <div class="box flex-grow-1 p-2">
+    <div class="flex flex-column gap-3">
+      <div class="flex flex-none">
+        <div class="flex justify-content-start">
+          <p-button label="你的音樂庫"
+                    [text]="true" icon="pi pi-inbox mr-3"
+                    styleClass="text-left text-white"></p-button>
         </div>
-        <div class="flex-grow-1 flex flex-column gap-4">
-          <div class="music-content flex flex-column gap-3">
-            <span class="font-medium">建立你的第一個播放清單</span>
-            <span class="text-sm">這很簡單，我們會幫你</span>
-            <p-button label="建立播放清單"
-                      size="small"
-                      [rounded]="true"
-                      [style]="{ height: '35px' }"
-                      styleClass="mt-2 text-sm bg-white"></p-button>
-          </div>
-          <div class="music-content flex flex-column gap-3">
-            <span class="font-medium">不妨關注一些Podcast</span>
-            <span class="text-sm">我們會在新單集推出時通知你</span>
-            <p-button label="瀏覽Podcast"
-                      size="small"
-                      [rounded]="true"
-                      [style]="{ height: '35px' }"
-                      styleClass="mt-2 text-sm bg-white"></p-button>
-          </div>
-        </div>
-        <div class="flex flex-column footer-content gap-4">
-          <p-button label="Cookie"
-                    size="small"
+        <div class="ml-auto">
+          <p-button icon="pi pi-plus"
+                    [rounded]="true"
                     [text]="true"
-                    styleClass="text-left text-sm text-400 font-light"></p-button>
-          <p-button label="中文"
-                    icon="pi pi-globe text-sm"
+                    styleClass="text-white"></p-button>
+          <!--              登入時才有-->
+          <!--              <p-button icon="pi pi-arrow-right" [rounded]="true" [text]="true"></p-button>-->
+        </div>
+      </div>
+      <div class="flex-grow-1 flex flex-column gap-4">
+        <div class="music-content flex flex-column gap-3">
+          <span class="font-medium">建立你的第一個播放清單</span>
+          <span class="text-sm">這很簡單，我們會幫你</span>
+          <p-button label="建立播放清單"
                     size="small"
                     [rounded]="true"
-                    [outlined]="true"
                     [style]="{ height: '35px' }"
-                    styleClass="mt-2 text-sm text-white border-white"></p-button>
+                    styleClass="mt-2 text-sm bg-white"></p-button>
         </div>
-        <!--          登入時才有-->
-        <!--          <div class="flex gap-3 mt-2">-->
-        <!--            <p-button label="播放清單"-->
-        <!--                      [rounded]="true" [style]="{ height: '80%' }"-->
-        <!--                      size="small"-->
-        <!--                      styleClass="text-xs"></p-button>-->
-        <!--            <p-button label="藝人"-->
-        <!--                      [rounded]="true"-->
-        <!--                      size="small" [style]="{ height: '80%' }"-->
-        <!--                      styleClass="text-xs"></p-button>-->
-        <!--            <p-button label="專輯"-->
-        <!--                      [rounded]="true"-->
-        <!--                      size="small" [style]="{ height: '80%' }"-->
-        <!--                      styleClass="text-xs"></p-button>-->
-        <!--          </div>-->
+        <div class="music-content flex flex-column gap-3">
+          <span class="font-medium">不妨關注一些Podcast</span>
+          <span class="text-sm">我們會在新單集推出時通知你</span>
+          <p-button label="瀏覽Podcast"
+                    size="small"
+                    [rounded]="true"
+                    [style]="{ height: '35px' }"
+                    styleClass="mt-2 text-sm bg-white"></p-button>
+        </div>
       </div>
+      <div class="flex flex-column footer-content gap-4">
+        <p-button label="Cookie"
+                  size="small"
+                  [text]="true"
+                  styleClass="text-left text-sm text-400 font-light"></p-button>
+        <p-button label="中文"
+                  icon="pi pi-globe text-sm"
+                  size="small"
+                  [rounded]="true"
+                  [outlined]="true"
+                  [style]="{ height: '35px' }"
+                  styleClass="mt-2 text-sm text-white border-white"></p-button>
+      </div>
+      <!--          登入時才有-->
+      <!--          <div class="flex gap-3 mt-2">-->
+      <!--            <p-button label="播放清單"-->
+      <!--                      [rounded]="true" [style]="{ height: '80%' }"-->
+      <!--                      size="small"-->
+      <!--                      styleClass="text-xs"></p-button>-->
+      <!--            <p-button label="藝人"-->
+      <!--                      [rounded]="true"-->
+      <!--                      size="small" [style]="{ height: '80%' }"-->
+      <!--                      styleClass="text-xs"></p-button>-->
+      <!--            <p-button label="專輯"-->
+      <!--                      [rounded]="true"-->
+      <!--                      size="small" [style]="{ height: '80%' }"-->
+      <!--                      styleClass="text-xs"></p-button>-->
+      <!--          </div>-->
     </div>
   </div>
 </div>
