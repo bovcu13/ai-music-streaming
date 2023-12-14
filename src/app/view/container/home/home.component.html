@@ -14,7 +14,8 @@
                      width="175"
                      imageClass="border-round"></p-image>
             <div class="play-button">
-              <p-button icon="pi pi-caret-right"
+              <p-button [icon]="audioElement.paused ? 'pi pi-caret-right' : 'pi pi pi-pause'"
+                        (click)="playPauseAudio()"
                         [rounded]="true"
                         size="small"
                         severity="success"></p-button>

@@ -15,5 +15,13 @@ import { MenuComponent } from "../../component/menu/menu.component";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  audioElement = new Audio('https://www.chosic.com/wp-content/uploads/2022/01/Evening-Improvisation-with-Ethera(chosic.com).mp3');
 
+  playPauseAudio() {
+    if (this.audioElement.paused) {
+      this.audioElement.play();
+    } else {
+      this.audioElement.pause();
+    }
+  }
 }
