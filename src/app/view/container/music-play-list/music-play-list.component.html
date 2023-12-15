@@ -1,0 +1,44 @@
+<div class="box box-color pt-2 pb-2 pl-3 pr-3">
+  <div class="grid">
+    <div class="col-8">
+      <div class="flex flex-column gap-4">
+        <div class="flex justify-content-center gap-2">
+          <p-button label="歌曲"
+                    [rounded]="true"
+                    [style]="{ height: '25px', backgroundColor: 'rgba(224, 224, 224, 0.2)' }"
+                    severity="secondary"
+                    styleClass="text-xs text-white border-none"></p-button>
+          <p-button label="影片"
+                    [rounded]="true"
+                    [style]="{ height: '25px', backgroundColor: 'rgba(224, 224, 224, 0.5)' }"
+                    severity="secondary"
+                    styleClass="text-xs text-white border-none"></p-button>
+        </div>
+        <video class="video-size" crossorigin="anonymous" controls>
+          <source src="https://public-rethel.s3.ap-southeast-1.amazonaws.com/video/standard-captions-example.mp4"
+                  type="video/mp4"/>
+          <track kind="captions" src="https://public-rethel.s3.ap-southeast-1.amazonaws.com/video/standard-captions-example.vtt" srclang="en" label="English" default />
+        </video>
+      </div>
+    </div>
+    <div class="col-4 justify-content-center">
+      <p-tabView styleClass="text-sm">
+        <p-tabPanel header="即將播放">
+          <p>
+            建置中
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="歌詞">
+          <p>
+            建置中
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="相關內容">
+          <p>
+            建置中
+          </p>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+</div>

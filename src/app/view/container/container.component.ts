@@ -4,6 +4,7 @@ import { RouterOutlet } from "@angular/router";
 import { PRIMENG_MODULES } from "../../share/primeng";
 import { MenuComponent } from "../component/menu/menu.component";
 import { HeaderComponent } from "../component/header/header.component";
+import { FooterComponent } from "../component/footer/footer.component";
 
 @Component({
   selector: 'app-container',
@@ -12,7 +13,8 @@ import { HeaderComponent } from "../component/header/header.component";
     RouterOutlet,
     PRIMENG_MODULES,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   templateUrl: './container.component.html',
   styleUrl: './container.component.scss'

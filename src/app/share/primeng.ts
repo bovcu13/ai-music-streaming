@@ -11,6 +11,9 @@ import { TagModule } from "primeng/tag";
 import { DataViewModule } from 'primeng/dataview';
 import { SplitterModule } from "primeng/splitter";
 import { ImageModule } from 'primeng/image';
+import { SliderModule } from 'primeng/slider';
+import { RippleModule } from 'primeng/ripple';
+import { TabViewModule } from 'primeng/tabview';
 
 
 export const PRIMENG_MODULES = [
@@ -26,5 +29,8 @@ export const PRIMENG_MODULES = [
   TagModule,
   DataViewModule,
   SplitterModule,
-  ImageModule
+  ImageModule,
+  SliderModule,
+  RippleModule,
+  TabViewModule
 ];
