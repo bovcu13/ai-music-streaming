@@ -1,3 +1,17 @@
 .full-height {
   height: calc(100vh - 16px);
 }
+
+.grid {
+  display: flex;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.app-footer {
+  height: 10vh;
+}
