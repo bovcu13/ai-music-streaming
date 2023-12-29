@@ -14,6 +14,12 @@ import { ImageModule } from 'primeng/image';
 import { SliderModule } from 'primeng/slider';
 import { RippleModule } from 'primeng/ripple';
 import { TabViewModule } from 'primeng/tabview';
+import { DividerModule } from "primeng/divider";
+import { ProgressBarModule } from 'primeng/progressbar';
+import { PasswordModule } from 'primeng/password';
+import { CalendarModule } from 'primeng/calendar';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { CheckboxModule } from 'primeng/checkbox';
 
 
 export const PRIMENG_MODULES = [
@@ -32,5 +38,11 @@ export const PRIMENG_MODULES = [
   ImageModule,
   SliderModule,
   RippleModule,
-  TabViewModule
+  TabViewModule,
+  DividerModule,
+  ProgressBarModule,
+  PasswordModule,
+  CalendarModule,
+  RadioButtonModule,
+  CheckboxModule,
 ];
