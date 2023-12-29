@@ -1,0 +1,164 @@
+<div class="flex justify-content-center">
+  <div class="col-5">
+    @if (deafultPage) {
+      <div class="flex flex-column justify-content-center gap-5">
+        <h1>註冊並開始學習</h1>
+        <div class="flex justify-content-center">
+          <div class="col-8">
+            <div class="field">
+              <label class="text-sm font-medium">電子郵件地址</label>
+              <br>
+              <input class="w-full" type="text" placeholder="name@domain.com" pInputText/>
+            </div>
+            <p-button label="下一步"
+                      (click)="deafultPage = false; createPassword = true; startProgressBar()"
+                      [rounded]="true"
+                      styleClass="mt-4 w-full bg-white text-sm"></p-button>
+          </div>
+        </div>
+        <p-divider></p-divider>
+        <span class="text-sm text-400 text-center">已經有帳戶了嗎？<span
+          class="text-sm login-text">請按這裡登入。</span></span>
+      </div>
+    } @else if (createPassword) {
+      <div class="flex flex-column justify-content-center gap-3">
+        <p-progressBar [value]="progressValue" [showValue]="false" color="#fffffe"></p-progressBar>
+        <div class="flex justify-content-start align-items-center gap-3">
+          <i class="text-lg p-step fa-solid fa-chevron-left"
+             (click)="deafultPage = true; createPassword = false; backProgressBar()"></i>
+          <div class="flex flex-column gap-1">
+            <span class="text-sm text-400">步驟 1 (共3步)</span>
+            <span class="text-sm font-medium">建立密碼</span>
+          </div>
+        </div>
+        <div class="flex justify-content-center">
+          <div class="col-8">
+            <div class="field">
+              <label class="text-sm font-medium">密碼</label>
+              <br>
+              <p-password styleClass="w-full" inputStyleClass="w-full"
+                          [feedback]="false" [toggleMask]="true"></p-password>
+            </div>
+            <div class="field">
+              <label class="text-sm font-medium">確認密碼</label>
+              <br>
+              <p-password styleClass="w-full" inputStyleClass="w-full"
+                          [feedback]="false" [toggleMask]="true"></p-password>
+            </div>
+            <div class="field">
+              <span class="text-400 text-xs">密碼必須包含至少8個字元,建議至少包含1個數字和1個特殊字元</span>
+            </div>
+            <p-button label="下一步"
+                      (click)="createPassword = false; createProfile = true; startProgressBar()"
+                      [rounded]="true"
+                      styleClass="mt-4 w-full bg-white text-sm"></p-button>
+          </div>
+        </div>
+      </div>
+    } @else if (createProfile) {
+      <div class="flex flex-column justify-content-center gap-3">
+        <p-progressBar [value]="progressValue" [showValue]="false" color="#fffffe"></p-progressBar>
+        <div class="flex justify-content-start align-items-center gap-3">
+          <i class="text-lg p-step fa-solid fa-chevron-left"
+             (click)="createPassword = true; createProfile = false; backProgressBar()"></i>
+          <div class="flex flex-column gap-1">
+            <span class="text-sm text-400">步驟 2 (共3步)</span>
+            <span class="text-sm font-medium">介紹一下你自己</span>
+          </div>
+        </div>
+        <div class="flex justify-content-center">
+          <div class="col-8">
+            <div class="field">
+              <label class="text-sm font-medium">姓名</label>
+              <br>
+              <label class="text-xs text-400 font-medium">個人檔案上會顯示此名稱</label>
+              <br>
+              <input class="w-full" type="text" pInputText/>
+            </div>
+            <div class="field">
+              <label class="text-sm font-medium">出生日期</label>
+              <br>
+              <label class="text-xs text-400 font-medium">為什麼要提供出生日期？<span class="cursor-pointer underline">詳情請參閱此處</span></label>
+              <br>
+              <p-calendar inputStyleClass="w-full" styleClass="w-full" appendTo="body"
+                          dateFormat="yy-mm-dd"></p-calendar>
+            </div>
+            <div class="field">
+              <label class="text-sm font-medium">性別</label>
+              <br>
+              <label class="text-xs text-400 font-medium">性別資訊有助於我們提供個人化的推薦內容與廣告</label>
+              <br>
+              <div class="flex gap-4">
+                <div class="flex align-items-center">
+                  <p-radioButton value="male" [(ngModel)]="gender"></p-radioButton>
+                  <label class="ml-2 text-sm">男性</label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-radioButton value="female" [(ngModel)]="gender"></p-radioButton>
+                  <label class="ml-2 text-sm">女性</label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-radioButton value="non-binary" [(ngModel)]="gender"></p-radioButton>
+                  <label class="ml-2 text-sm">非二元性別</label>
+                </div>
+              </div>
+              <div class="flex gap-4 mt-2">
+                <div class="flex align-items-center">
+                  <p-radioButton value="other" [(ngModel)]="gender"></p-radioButton>
+                  <label class="ml-2 text-sm">其他</label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-radioButton value="prefer not to disclose" [(ngModel)]="gender"></p-radioButton>
+                  <label class="ml-2 text-sm">不方便透露</label>
+                </div>
+              </div>
+            </div>
+            <p-button label="下一步"
+                      (click)="createProfile = false; tcPage = true; startProgressBar()"
+                      [rounded]="true"
+                      styleClass="mt-4 w-full bg-white text-sm"></p-button>
+          </div>
+        </div>
+      </div>
+    } @else if (tcPage) {
+      <div class="flex flex-column justify-content-center gap-3">
+        <p-progressBar [value]="progressValue" [showValue]="false" color="#fffffe"></p-progressBar>
+        <div class="flex justify-content-start align-items-center gap-3">
+          <i class="text-lg p-step fa-solid fa-chevron-left"
+             (click)="createProfile = true; tcPage = false; backProgressBar()"></i>
+          <div class="flex flex-column gap-1">
+            <span class="text-sm text-400">步驟 3 (共3步)</span>
+            <span class="text-sm font-medium">條款與條件</span>
+          </div>
+        </div>
+        <div class="flex justify-content-center">
+          <div class="col-8">
+            <div class="flex flex-column gap-3">
+              <div class="check-box">
+                <p-checkbox label="我不希望收到 MSC Tech 的行銷訊息"
+                            styleClass="line-height-2 text-xs"
+                            [binary]="true"
+                            [(ngModel)]="marketing_preferences"></p-checkbox>
+              </div>
+              <div class="check-box">
+                <p-checkbox label="我同意與 MSC Tech 的內容供應商分享註冊資料，以利進行合理範圍內的行銷工作"
+                            styleClass="line-height-2 text-xs"
+                            [binary]="true"
+                            [(ngModel)]="data_sharing_consent"></p-checkbox>
+              </div>
+              <span class="text-xs font-medium">
+                按下「註冊」，即表示你同意 MSC Tech 的
+                <span class="text-400 cursor-pointer underline">使用條款與條件</span>。</span>
+              <span class="text-xs font-medium">
+                如要深入瞭解 MSC Tech 如何收集、使用、分享及保護你的個人資料，請詳閱
+                <span class="text-400 cursor-pointer underline">MSC Tech 的隱私權政策</span>。</span>
+            </div>
+            <p-button label="註冊"
+                      [rounded]="true"
+                      styleClass="mt-4 w-full bg-white text-sm"></p-button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
