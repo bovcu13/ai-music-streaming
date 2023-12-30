@@ -1,11 +1,12 @@
 <div class="footer-box flex justify-content-between align-items-center p-2" style="height: 100%">
-    <div class="flex flex-column gap-2">
-        <span class="text-xs font-light">POC-KHS 預覽</span>
-        <span class="text-sm">註冊就能無限暢聽歌曲和 Podcast, 偶爾穿插些廣告。無需信用卡。</span>
-    </div>
-    <p-button label="免費註冊"
-              [rounded]="true"
-              styleClass="bg-white text-sm border-none"></p-button>
+  <div class="flex flex-column gap-2">
+    <span class="text-xs font-light">MSC Tech 預覽</span>
+    <span class="text-sm">註冊就能無限暢聽歌曲和 Podcast, 偶爾穿插些廣告。無需信用卡。</span>
+  </div>
+  <p-button label="免費註冊"
+            (click)="openRegisterInNewTab()"
+            [rounded]="true"
+            styleClass="bg-white text-sm border-none"></p-button>
 </div>
 <!--<div class="grid" (click)="goToWatch(1)">-->
 <!--  <div class="col-4 flex align-items-center gap-2">-->
