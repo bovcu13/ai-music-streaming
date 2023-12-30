@@ -28,4 +28,8 @@ export class FooterComponent {
       this.router.navigate(['/watch', id]);
     }
   }
+
+  openRegisterInNewTab() {
+    window.open('/register', '_blank');
+  }
 }
