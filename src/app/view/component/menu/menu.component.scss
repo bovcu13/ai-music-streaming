@@ -13,11 +13,12 @@
 }
 
 ::ng-deep {
-  .cookie-light {
-    font-weight: 300;
+  .z-1000 {
+    z-index: 1000;
+  }
+
+  .p-card .p-card-body {
+    padding: 0.5rem 1rem 0.5rem 1.25rem;
   }
 }
 
-.full-height {
-  height: 84.8vh;
-}

@@ -16,10 +16,10 @@
     </div>
   </div>
   <div class="box p-2" style="height: 67%">
-    <div class="flex flex-column gap-3">
+    <div class="flex flex-column gap-3" style="position: relative">
       <div class="flex">
         <div class="flex justify-content-start">
-          <p-button label="你的音樂庫"
+          <p-button label="你的學習庫"
                     [text]="true" icon="pi pi-inbox mr-3"
                     styleClass="text-left text-white"></p-button>
         </div>
@@ -32,12 +32,13 @@
           <!--              <p-button icon="pi pi-arrow-right" [rounded]="true" [text]="true"></p-button>-->
         </div>
       </div>
-      <div class="flex flex-column gap-4 overflow-y-scroll" style="height: 175px">
-        <div class="music-content flex flex-column gap-3">
-          <span class="font-medium">建立你的第一個播放清單</span>
+      <div class="flex flex-column gap-4 overflow-y-auto" style="height: 175px">
+        <div class="music-content flex flex-column gap-3" style="position: relative">
+          <span class="font-medium">建立你的第一個學習清單</span>
           <span class="text-sm">這很簡單，我們會幫你</span>
           <p-button label="建立播放清單"
                     size="small"
+                    (click)="showLoginTip = true"
                     [rounded]="true"
                     [style]="{ height: '35px' }"
                     styleClass="mt-2 text-sm bg-white"></p-button>
@@ -80,6 +81,22 @@
       <!--                      size="small" [style]="{ height: '80%' }"-->
       <!--                      styleClass="text-xs"></p-button>-->
       <!--          </div>-->
+      <!--      登入提示-->
+      <p-card *ngIf="showLoginTip" styleClass="bg-blue-600 text-white p-1 z-1000"
+              [style]="{position: 'absolute', right: '-300px', top: '0'}">
+        <div class="flex flex-column gap-3">
+          <span class="font-bold text-lg">建立您的學習清單</span>
+          <span class="text-sm">登入後即可在此建立您的學習清單。</span>
+          <div class="flex justify-content-end align-items-center gap-4">
+            <span class="text-sm a-dark-text" (click)="showLoginTip = false">現在不要</span>
+            <p-button label="登入"
+                      routerLink="/login"
+                      size="small"
+                      [rounded]="true"
+                      styleClass="text-sm bg-white"></p-button>
+          </div>
+        </div>
+      </p-card>
     </div>
   </div>
 </div>

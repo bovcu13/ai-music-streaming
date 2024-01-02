@@ -13,7 +13,13 @@ import { CommonModule } from "@angular/common";
   styleUrl: './menu.component.scss',
 })
 export class MenuComponent implements OnInit {
+  showLoginTip: boolean = false;
+
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
+
 }
