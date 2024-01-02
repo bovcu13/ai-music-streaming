@@ -1,6 +1,6 @@
 <div class="flex justify-content-center">
   <div class="col-5">
-    @if (deafultPage) {
+    @if (steps[stepIndex] === 'deafultPage') {
       <div class="flex flex-column justify-content-center gap-5">
         <h1>註冊並開始學習</h1>
         <div class="flex justify-content-center">
@@ -11,21 +11,21 @@
               <input class="w-full" type="text" placeholder="name@domain.com" pInputText/>
             </div>
             <p-button label="下一步"
-                      (click)="deafultPage = false; createPassword = true; startProgressBar()"
+                      (click)="nextStep(); startProgressBar()"
                       [rounded]="true"
                       styleClass="mt-4 w-full bg-white text-sm"></p-button>
           </div>
         </div>
         <p-divider></p-divider>
-        <span class="text-sm text-400 text-center">已經有帳戶了嗎？<span
-          class="text-sm login-text">請按這裡登入。</span></span>
+        <span class="text-sm text-400 text-center">已經有帳戶了嗎？
+          <span class="text-sm a-white-text" routerLink="/login">請按這裡登入。</span></span>
       </div>
-    } @else if (createPassword) {
+    } @else if (steps[stepIndex] === 'createPassword') {
       <div class="flex flex-column justify-content-center gap-3">
         <p-progressBar [value]="progressValue" [showValue]="false" color="#fffffe"></p-progressBar>
         <div class="flex justify-content-start align-items-center gap-3">
           <i class="text-lg p-step fa-solid fa-chevron-left"
-             (click)="deafultPage = true; createPassword = false; backProgressBar()"></i>
+             (click)="previousStep(); backProgressBar()"></i>
           <div class="flex flex-column gap-1">
             <span class="text-sm text-400">步驟 1 (共3步)</span>
             <span class="text-sm font-medium">建立密碼</span>
@@ -49,18 +49,18 @@
               <span class="text-400 text-xs">密碼必須包含至少8個字元,建議至少包含1個數字和1個特殊字元</span>
             </div>
             <p-button label="下一步"
-                      (click)="createPassword = false; createProfile = true; startProgressBar()"
+                      (click)="nextStep(); startProgressBar()"
                       [rounded]="true"
                       styleClass="mt-4 w-full bg-white text-sm"></p-button>
           </div>
         </div>
       </div>
-    } @else if (createProfile) {
+    } @else if (steps[stepIndex] === 'createProfile') {
       <div class="flex flex-column justify-content-center gap-3">
         <p-progressBar [value]="progressValue" [showValue]="false" color="#fffffe"></p-progressBar>
         <div class="flex justify-content-start align-items-center gap-3">
           <i class="text-lg p-step fa-solid fa-chevron-left"
-             (click)="createPassword = true; createProfile = false; backProgressBar()"></i>
+             (click)="previousStep(); backProgressBar()"></i>
           <div class="flex flex-column gap-1">
             <span class="text-sm text-400">步驟 2 (共3步)</span>
             <span class="text-sm font-medium">介紹一下你自己</span>
@@ -114,18 +114,18 @@
               </div>
             </div>
             <p-button label="下一步"
-                      (click)="createProfile = false; tcPage = true; startProgressBar()"
+                      (click)="nextStep(); startProgressBar()"
                       [rounded]="true"
                       styleClass="mt-4 w-full bg-white text-sm"></p-button>
           </div>
         </div>
       </div>
-    } @else if (tcPage) {
+    } @else if (steps[stepIndex] === 'tcPage') {
       <div class="flex flex-column justify-content-center gap-3">
         <p-progressBar [value]="progressValue" [showValue]="false" color="#fffffe"></p-progressBar>
         <div class="flex justify-content-start align-items-center gap-3">
           <i class="text-lg p-step fa-solid fa-chevron-left"
-             (click)="createProfile = true; tcPage = false; backProgressBar()"></i>
+             (click)="previousStep(); backProgressBar()"></i>
           <div class="flex flex-column gap-1">
             <span class="text-sm text-400">步驟 3 (共3步)</span>
             <span class="text-sm font-medium">條款與條件</span>
@@ -148,10 +148,10 @@
               </div>
               <span class="text-xs font-medium">
                 按下「註冊」，即表示你同意 MSC Tech 的
-                <span class="text-400 cursor-pointer underline">使用條款與條件</span>。</span>
+                <span class="a-dark-text">使用條款與條件</span>。</span>
               <span class="text-xs font-medium">
                 如要深入瞭解 MSC Tech 如何收集、使用、分享及保護你的個人資料，請詳閱
-                <span class="text-400 cursor-pointer underline">MSC Tech 的隱私權政策</span>。</span>
+                <span class="a-dark-text">MSC Tech 的隱私權政策</span>。</span>
             </div>
             <p-button label="註冊"
                       [rounded]="true"

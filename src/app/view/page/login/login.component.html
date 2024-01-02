@@ -1,0 +1,35 @@
+<div class="flex justify-content-center">
+  <div class="col-5">
+    <div class="flex flex-column justify-content-center gap-5">
+      <h1>登入您的 MSC Tech</h1>
+      <div class="flex justify-content-center">
+        <div class="col-8">
+          <div class="field">
+            <label class="text-sm font-medium">電子信箱或使用者名稱</label>
+            <br>
+            <input class="w-full" type="text" placeholder="電子信箱或使用者名稱" pInputText/>
+          </div>
+          <div class="field">
+            <label class="text-sm font-medium">密碼</label>
+            <br>
+            <p-password styleClass="w-full" inputStyleClass="w-full"
+                        placeholder="密碼"
+                        [feedback]="false" [toggleMask]="true"></p-password>
+          </div>
+          <p-button label="登入"
+                    [rounded]="true"
+                    styleClass="mt-4 w-full bg-white text-sm"></p-button>
+        </div>
+      </div>
+      <div class="flex gap-6 justify-content-center">
+        <i class="a-dark-icon fa-brands fa-google"></i>
+        <i class="a-dark-icon fa-brands fa-facebook"></i>
+        <i class="a-dark-icon fa-brands fa-apple"></i>
+      </div>
+      <span class="a-dark-text text-center text-sm">忘記密碼？</span>
+      <p-divider></p-divider>
+      <span class="text-sm text-400 text-center">還沒有帳戶嗎？
+          <span class="text-sm a-white-text" routerLink="/register">請按這裡註冊。</span></span>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../share/primeng";
 import { FormsModule } from "@angular/forms";
 
@@ -12,11 +12,10 @@ import { FormsModule } from "@angular/forms";
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export class RegisterComponent implements OnDestroy {
-  deafultPage: boolean = true;
-  createPassword: boolean = false;
-  createProfile: boolean = false;
-  tcPage: boolean = false;
+export class RegisterComponent implements OnInit {
+  [key: string]: any;
+  steps = ['deafultPage', 'createPassword', 'createProfile', 'tcPage'];
+  stepIndex = 0;
   gender: string = ''
   marketing_preferences: boolean = false;
   data_sharing_consent: boolean = false;
@@ -24,9 +23,25 @@ export class RegisterComponent implements OnDestroy {
   progressValue: number = 0;
   intervalId?: number;
 
-  ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
+  constructor() { }
+
+  ngOnInit() { }
+
+  nextStep() {
+    if (this.stepIndex < this.steps.length - 1) {
+      this[this.steps[this.stepIndex]] = false;
+      this.stepIndex++;
+      this[this.steps[this.stepIndex]] = true;
+      this.startProgressBar();
+    }
+  }
+
+  previousStep() {
+    if (this.stepIndex > 0) {
+      this[this.steps[this.stepIndex]] = false;
+      this.stepIndex--;
+      this[this.steps[this.stepIndex]] = true;
+      this.backProgressBar();
     }
   }
 
