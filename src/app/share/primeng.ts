@@ -20,6 +20,7 @@ import { PasswordModule } from 'primeng/password';
 import { CalendarModule } from 'primeng/calendar';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 
 export const PRIMENG_MODULES = [
@@ -45,4 +46,5 @@ export const PRIMENG_MODULES = [
   CalendarModule,
   RadioButtonModule,
   CheckboxModule,
+  OverlayPanelModule
 ];
