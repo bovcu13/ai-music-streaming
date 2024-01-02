@@ -20,3 +20,34 @@ body {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
+.a-white-text {
+  color: #ffffff;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline; /* 當滑鼠懸停時，添加下劃線 */
+  }
+}
+
+.a-dark-text {
+  color: var(--surface-400);
+  font-weight: bold;
+
+  &:hover {
+    color: var(--surface-500);
+    cursor: pointer;
+    text-decoration: underline; /* 當滑鼠懸停時，添加下劃線 */
+  }
+}
+
+.a-dark-icon {
+  color: var(--surface-400);
+  font-weight: bold;
+
+  &:hover {
+    color: var(--surface-500);
+    cursor: pointer;
+  }
+}
