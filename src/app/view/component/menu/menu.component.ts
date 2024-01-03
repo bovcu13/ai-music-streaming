@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
     const percentage = (firstBoxHeight / parentHeight) * 100;
 
     const secondBox = this.parent.nativeElement.children[1];
-    this.renderer.setStyle(secondBox, 'height', `calc(100% - ${percentage}%)`);
+    this.renderer.setStyle(secondBox, 'height', `calc(100% - ${percentage}% - 8px)`);
   }
 
 }

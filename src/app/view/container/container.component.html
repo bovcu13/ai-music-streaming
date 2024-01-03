@@ -1,16 +1,16 @@
 <div class="grid h-screen p-2">
-  <div class="col-3" style="height: 87%">
+  <div class="col-3" style="height: calc(100vh - 86px)">
     <app-menu></app-menu>
   </div>
-  <div class="col-9" style="height: 87%">
-    <div style="height: 13%">
+  <div class="col-9" style="height: calc(100vh - 86px)">
+    <div style="height: 80px">
       <app-header></app-header>
     </div>
-    <div style="height: 87%">
+    <div style="height: calc(100% - 80px)">
       <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="col-12" style="height: 13%">
+  <div class="col-12" style="height: 86px">
     <app-footer></app-footer>
   </div>
 </div>
