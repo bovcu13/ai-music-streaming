@@ -13,6 +13,7 @@ export const course = [
       '學習HTML5語法，以及HTML Semantic Elements，並且使用HTML Validator驗證程式碼正確性，製作出功能性完整的網頁'
     ],
     rating: 4.8,
+    total_reviews: 2271,
     price: 330,
     created_by: 'John Doe',
     updated_at: '2024-01-01',
@@ -31,6 +32,7 @@ export const course = [
       '識別基本與進階Python資料類別與使用時機'
     ],
     rating: 4.7,
+    total_reviews: 2076,
     price: 330,
     created_by: 'John Doe',
     updated_at: '2024-01-01',
