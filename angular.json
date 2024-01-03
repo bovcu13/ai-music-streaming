@@ -35,7 +35,9 @@
               "node_modules/primeflex/primeflex.css"
 
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/colorthief/dist/color-thief.umd.js"
+            ]
           },
           "configurations": {
             "production": {
