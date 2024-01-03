@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../share/primeng";
 import { course } from "../../../share/data/course";
 import { RouterOutlet } from "@angular/router";
-import { NgClass, NgForOf } from "@angular/common";
+import { NgClass, NgForOf, NgStyle } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+
+declare var ColorThief: any;
 
 @Component({
   selector: 'app-home',
@@ -13,14 +15,18 @@ import { FormsModule } from "@angular/forms";
     RouterOutlet,
     NgForOf,
     FormsModule,
-    NgClass
+    NgClass,
+    NgStyle
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  loginDialog = true;
+  loginDialog = false;
+  domainColor: any;
   course = course;
+
+  constructor(private renderer: Renderer2, private el: ElementRef) { }
 
   playPauseAudio(audioElement: HTMLAudioElement) {
     if (audioElement.paused) {
@@ -28,6 +34,11 @@ export class HomeComponent {
     } else {
       audioElement.pause();
     }
+  }
+
+  openLoginDialog(course: any) {
+    this.loginDialog = true;
+    this.getDominantColor(course.imageUrl);
   }
 
   getStarClass(rating: number, starNumber: number) {
@@ -38,5 +49,20 @@ export class HomeComponent {
     } else {
       return 'text-yellow-500 text-sm fa-regular fa-star';
     }
+  }
+
+  getDominantColor(imageUrl: string) {
+    const colorThief = new ColorThief();
+    const img = new Image();
+
+    let googleProxyURL = 'https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=';
+    img.crossOrigin = 'Anonymous';
+    img.src = googleProxyURL + encodeURIComponent(imageUrl);
+
+    img.onload = () => {
+      const color = colorThief.getColor(img);
+      this.domainColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+      console.log(this.domainColor);
+    };
   }
 }
