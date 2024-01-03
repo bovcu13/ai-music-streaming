@@ -43,13 +43,32 @@
   </div>
 </div>
 
-<p-dialog styleClass="border-round border-none fadein animation-duration-500"
+<p-dialog styleClass="border-round border-none fadein animation-duration-300"
           [contentStyle]="{'background': 'linear-gradient(to bottom, ' + domainColor + ', rgb(20, 20, 20))'}"
           [showHeader]="false"
           [(visible)]="loginDialog"
           [modal]="true"
-          [style]="{ width: '60vw' }"
+          [style]="{ width: '60vw', position: 'relative'}"
           [draggable]="false"
           [resizable]="false">
-  12345
+  <div class="flex justify-content-center align-items-center">
+    <div class="col-6">
+      <p-image [src]="domainImg"
+               imageClass="border-round w-full"></p-image>
+    </div>
+    <div class="col-6">
+      <div class="flex flex-column align-items-center gap-5">
+        <h1 class="text-center">使用免費 MSC Tech 帳戶開始學習</h1>
+        <p-button label="免費註冊"
+                  (click)="openRegisterInNewTab()"
+                  styleClass="bg-white"
+                  [rounded]="true"></p-button>
+        <span class="text-sm text-400 text-center">已經有帳戶了嗎？
+          <span class="text-sm a-white-text" routerLink="/login">登入</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <span style="position: absolute; bottom: -50px; left: calc(50% - 16px)"
+        class="a-dark-icon" (click)="loginDialog = false">關閉</span>
 </p-dialog>

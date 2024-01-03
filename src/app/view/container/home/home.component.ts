@@ -23,6 +23,7 @@ declare var ColorThief: any;
 })
 export class HomeComponent {
   loginDialog = false;
+  domainImg: any;
   domainColor: any;
   course = course;
 
@@ -37,7 +38,7 @@ export class HomeComponent {
   }
 
   openLoginDialog(course: any) {
-    this.loginDialog = true;
+    this.domainImg = course.imageUrl;
     this.getDominantColor(course.imageUrl);
   }
 
@@ -63,6 +64,11 @@ export class HomeComponent {
       const color = colorThief.getColor(img);
       this.domainColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
       console.log(this.domainColor);
+      this.loginDialog = true;
     };
+  }
+
+  openRegisterInNewTab() {
+    window.open('/register', '_blank');
   }
 }
