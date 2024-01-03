@@ -11,7 +11,7 @@
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   position: relative;
-  transition: background 0.3s ease; /* 添加过渡效果 */
+  transition: background 0.5s ease;
 
   &:hover {
     background: rgba(100, 100, 100, 0.3);
@@ -21,12 +21,24 @@
 
 .play-button {
   position: absolute;
-  bottom: 6.5rem;
-  right: 2rem;
+  bottom: 1rem;
+  right: 1rem;
   display: none;
 }
 
 .play-box:hover .play-button {
   display: block;
   animation: fadein 0.4s linear;
+}
+
+::ng-deep {
+  .p-dialog .p-dialog-content {
+    background: #1f2937;
+    color: rgba(255, 255, 255, 0.87);
+    padding: 4rem;
+  }
+
+  .p-dialog .p-dialog-content:last-of-type {
+    border-radius: 6px;
+  }
 }

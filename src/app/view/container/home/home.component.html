@@ -1,46 +1,40 @@
 <div class="content-box p-3" style="height: 100%">
   <div class="flex justify-content-between align-items-center">
-    <span class="text-2xl font-medium">課程清單</span>
+    <span class="text-2xl font-medium">下一步要學習什麼？</span>
     <p-button label="顯示所有內容"
               [link]="true"
               styleClass="text-400 text-xs"></p-button>
   </div>
   <div class="col-12">
     <div class="grid">
-      <div class="col-3">
+      <div class="col-3" *ngFor="let course of course">
         <div class="play-box p-4">
-          <div class="flex flex-column align-items-center gap-2">
-            <p-image src="https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037"
+          <div class="flex flex-column gap-2">
+            <p-image [src]="course.imageUrl"
                      imageClass="border-round w-full"></p-image>
             <div class="play-button">
-              <p-button [icon]="audioElement1.paused ? 'pi pi-caret-right' : 'pi pi pi-pause'"
-                        (click)="playPauseAudio1()"
+              <p-button [icon]="course.audioElement.paused ? 'text-xs pi pi-caret-right' : 'text-xs pi pi pi-pause'"
+                        (click)="playPauseAudio(course.audioElement)"
                         [rounded]="true"
-                        size="small"
-                        severity="success"></p-button>
+                        severity="secondary"
+                        styleClass="border-none"
+                        [style]="{width: '2rem', height: '2rem', 'background-color': 'rgba(255,255,255,0.5)'}"></p-button>
             </div>
             <div class="flex flex-column align-items-start gap-2">
-              <span class="text-sm font-bold">lofi beats</span>
-              <span class="text-xs line-height-3">chill beats, lofi vibes, new tracks every week...</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="play-box p-4">
-          <div class="flex flex-column align-items-center gap-2">
-            <p-image src="https://i.scdn.co/image/ab67706f0000000277c91d9f09e4deb8a2ede4cb"
-                     imageClass="border-round w-full"></p-image>
-            <div class="play-button">
-              <p-button [icon]="audioElement2.paused ? 'pi pi-caret-right' : 'pi pi pi-pause'"
-                        (click)="playPauseAudio2()"
-                        [rounded]="true"
-                        size="small"
-                        severity="success"></p-button>
-            </div>
-            <div class="flex flex-column align-items-start gap-2">
-              <span class="text-sm font-bold">Christmas Hits</span>
-              <span class="text-xs line-height-3">The biggest Christmas songs of all time.</span>
+              <span class="text-sm font-bold">{{ course.course_name }}</span>
+              <span class="text-xs text-400">{{ course.created_by }}</span>
+              <div class="flex gap-2 align-items-center">
+                <span class="text-xs font-bold">{{ course.rating }}</span>
+                <div class="flex gap-1">
+                  <i class="{{ getStarClass(course.rating, 1) }}"></i>
+                  <i class="{{ getStarClass(course.rating, 2) }}"></i>
+                  <i class="{{ getStarClass(course.rating, 3) }}"></i>
+                  <i class="{{ getStarClass(course.rating, 4) }}"></i>
+                  <i class="{{ getStarClass(course.rating, 5) }}"></i>
+                </div>
+                <span class="text-xs text-400">({{ course.total_reviews }})</span>
+              </div>
+              <span class="text-sm font-bold">${{ course.price }}</span>
             </div>
           </div>
         </div>
@@ -48,3 +42,10 @@
     </div>
   </div>
 </div>
+
+<p-dialog styleClass="border-round border-none" [showHeader]="false" [(visible)]="loginDialog" [modal]="true" [style]="{ width: '60vw' }" [draggable]="false" [resizable]="false">
+  <p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</p-dialog>
