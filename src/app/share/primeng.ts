@@ -21,6 +21,8 @@ import { CalendarModule } from 'primeng/calendar';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { RatingModule } from 'primeng/rating';
+import { DialogModule } from 'primeng/dialog';
 
 
 export const PRIMENG_MODULES = [
@@ -46,5 +48,7 @@ export const PRIMENG_MODULES = [
   CalendarModule,
   RadioButtonModule,
   CheckboxModule,
-  OverlayPanelModule
+  OverlayPanelModule,
+  RatingModule,
+  DialogModule
 ];

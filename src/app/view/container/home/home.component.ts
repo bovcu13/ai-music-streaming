@@ -1,37 +1,42 @@
 import { Component } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../share/primeng";
+import { course } from "../../../share/data/course";
 import { RouterOutlet } from "@angular/router";
-import { MenuComponent } from "../../component/menu/menu.component";
+import { NgClass, NgForOf } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterOutlet,
     PRIMENG_MODULES,
-    MenuComponent
+    RouterOutlet,
+    NgForOf,
+    FormsModule,
+    NgClass
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  audioElement1 = new Audio('https://www.chosic.com/wp-content/uploads/2022/01/Evening-Improvisation-with-Ethera(chosic.com).mp3');
+  loginDialog = true;
+  course = course;
 
-  playPauseAudio1() {
-    if (this.audioElement1.paused) {
-      this.audioElement1.play();
+  playPauseAudio(audioElement: HTMLAudioElement) {
+    if (audioElement.paused) {
+      audioElement.play();
     } else {
-      this.audioElement1.pause();
+      audioElement.pause();
     }
   }
 
-  audioElement2 = new Audio('https://www.chosic.com/wp-content/uploads/2023/06/Moonset(chosic.com).mp3');
-
-  playPauseAudio2() {
-    if (this.audioElement2.paused) {
-      this.audioElement2.play();
+  getStarClass(rating: number, starNumber: number) {
+    if (rating >= starNumber) {
+      return 'text-yellow-500 text-sm fa-solid fa-star';
+    } else if (rating >= starNumber - 0.5) {
+      return 'text-yellow-500 text-sm fa-solid fa-star-half-stroke';
     } else {
-      this.audioElement2.pause();
+      return 'text-yellow-500 text-sm fa-regular fa-star';
     }
   }
 }
