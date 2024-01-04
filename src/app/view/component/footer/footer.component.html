@@ -1,4 +1,4 @@
-<div class="footer-box flex justify-content-between align-items-center p-2" style="height: 100%">
+<div *ngIf="!isLoggedIn()" class="footer-box flex justify-content-between align-items-center p-2" style="height: 100%">
   <div class="flex flex-column gap-2">
     <span class="text-xs font-light">MSC Tech 預覽</span>
     <span class="text-sm">在這裡，每一位學習者都是未來的建造者。</span>
@@ -8,49 +8,50 @@
             [rounded]="true"
             styleClass="bg-white text-sm border-none"></p-button>
 </div>
-<!--<div class="grid" (click)="goToWatch(1)">-->
-<!--  <div class="col-4 flex align-items-center gap-2">-->
-<!--    <p-image src="https://i.scdn.co/image/ab67616d00001e024e99d9e37de2497b9b086fdf"-->
-<!--             width="50"-->
-<!--             imageClass="flex align-content-center border-round"></p-image>-->
-<!--    <div class="flex flex-column align-items-start gap-2">-->
-<!--      <span class="text-xs font-medium">Night Before Christmas</span>-->
-<!--      <span class="text-xs text-color-secondary">Sam Smith</span>-->
-<!--    </div>-->
-<!--    <p-button icon="pi pi-heart"-->
-<!--              [text]="true"-->
-<!--              severity="secondary"-->
-<!--              size="small"></p-button>-->
-<!--  </div>-->
-<!--  <div class="col-4 flex flex-column gap-3">-->
-<!--    <div class="flex justify-content-center gap-3">-->
-<!--      <p-button icon="fa-solid fa-shuffle"-->
-<!--                [text]="true"-->
-<!--                severity="secondary"-->
-<!--                size="small"></p-button>-->
-<!--      <p-button icon="fa-solid fa-backward-step"-->
-<!--                [text]="true"-->
-<!--                severity="secondary"-->
-<!--                size="small"></p-button>-->
-<!--      <p-button icon="fa-solid fa-play"-->
-<!--                [text]="true"-->
-<!--                severity="secondary"-->
-<!--                size="small"></p-button>-->
-<!--      <p-button icon="fa-solid fa-forward-step"-->
-<!--                [text]="true"-->
-<!--                severity="secondary"-->
-<!--                size="small"></p-button>-->
-<!--      <p-button icon="fa-solid fa-repeat"-->
-<!--                [text]="true"-->
-<!--                severity="secondary"-->
-<!--                size="small"></p-button>-->
-<!--    </div>-->
-<!--    <p-slider [(ngModel)]="value"></p-slider>-->
-<!--  </div>-->
-<!--  <div class="col-4 flex align-items-center justify-content-end">-->
-<!--    <p-button icon="fa-solid fa-caret-up"-->
-<!--              [text]="true"-->
-<!--              severity="secondary"-->
-<!--              size="small"></p-button>-->
-<!--  </div>-->
-<!--</div>-->
+
+<div *ngIf="isLoggedIn()" class="grid" (click)="goToWatch(1)">
+  <div class="col-4 flex align-items-center gap-2">
+    <p-image src="https://i.scdn.co/image/ab67616d00001e024e99d9e37de2497b9b086fdf"
+             width="50"
+             imageClass="flex align-content-center border-round"></p-image>
+    <div class="flex flex-column align-items-start gap-2">
+      <span class="text-xs font-medium">Night Before Christmas</span>
+      <span class="text-xs text-color-secondary">Sam Smith</span>
+    </div>
+    <p-button icon="pi pi-heart"
+              [text]="true"
+              severity="secondary"
+              size="small"></p-button>
+  </div>
+  <div class="col-4 flex flex-column gap-3">
+    <div class="flex justify-content-center gap-3">
+      <p-button icon="fa-solid fa-shuffle"
+                [text]="true"
+                severity="secondary"
+                size="small"></p-button>
+      <p-button icon="fa-solid fa-backward-step"
+                [text]="true"
+                severity="secondary"
+                size="small"></p-button>
+      <p-button icon="fa-solid fa-play"
+                [text]="true"
+                severity="secondary"
+                size="small"></p-button>
+      <p-button icon="fa-solid fa-forward-step"
+                [text]="true"
+                severity="secondary"
+                size="small"></p-button>
+      <p-button icon="fa-solid fa-repeat"
+                [text]="true"
+                severity="secondary"
+                size="small"></p-button>
+    </div>
+    <p-slider [(ngModel)]="value"></p-slider>
+  </div>
+  <div class="col-4 flex align-items-center justify-content-end">
+    <p-button icon="fa-solid fa-caret-up"
+              [text]="true"
+              severity="secondary"
+              size="small"></p-button>
+  </div>
+</div>
