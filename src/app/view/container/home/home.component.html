@@ -8,18 +8,18 @@
   <div class="col-12">
     <div class="grid">
       <div class="col-3" *ngFor="let course of course">
-        <div class="play-box p-4" (click)="openLoginDialog(course)">
+        <div class="play-box p-4" (click)="goToCourse(course)">
           <div class="flex flex-column gap-2">
             <p-image [src]="course.imageUrl"
                      imageClass="border-round w-full"></p-image>
-            <div class="play-button">
-              <p-button [icon]="course.audioElement.paused ? 'text-xs pi pi-caret-right' : 'text-xs pi pi pi-pause'"
-                        (click)="playPauseAudio(course.audioElement)"
-                        [rounded]="true"
-                        severity="secondary"
-                        styleClass="border-none"
-                        [style]="{width: '2rem', height: '2rem', 'background-color': 'rgba(255,255,255,0.5)'}"></p-button>
-            </div>
+<!--            <div class="play-button">-->
+<!--              <p-button [icon]="course.audioElement.paused ? 'text-xs pi pi-caret-right' : 'text-xs pi pi pi-pause'"-->
+<!--                        (click)="playPauseAudio(course.audioElement)"-->
+<!--                        [rounded]="true"-->
+<!--                        severity="secondary"-->
+<!--                        styleClass="border-none"-->
+<!--                        [style]="{width: '2rem', height: '2rem', 'background-color': 'rgba(255,255,255,0.5)'}"></p-button>-->
+<!--            </div>-->
             <div class="flex flex-column align-items-start gap-2">
               <span class="text-sm font-bold">{{ course.course_name }}</span>
               <span class="text-xs text-400">{{ course.created_by }}</span>

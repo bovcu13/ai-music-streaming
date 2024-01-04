@@ -1,8 +1,10 @@
 export const course = [
   {
+    id: 'web-2024',
     imageUrl: 'https://img-c.udemycdn.com/course/480x270/3376336_444a_9.jpg',
     audioElement: new Audio('https://www.chosic.com/wp-content/uploads/2022/01/Evening-Improvisation-with-Ethera(chosic.com).mp3'),
     course_name: '2024 網頁全端開發',
+    type: ['開發','網頁開發','前端網頁開發'],
     tags: '暢銷課程',
     total_hours: 80.5,
     level: '所有級別',
@@ -19,9 +21,11 @@ export const course = [
     updated_at: '2024-01-01',
   },
   {
+    id: 'python3-chinese',
     imageUrl: 'https://img-c.udemycdn.com/course/480x270/4885958_8992_7.jpg',
     audioElement: new Audio('https://www.chosic.com/wp-content/uploads/2023/06/Moonset(chosic.com).mp3'),
     course_name: '2024 Python全攻略',
+    type: ['開發','程式語言','Python'],
     tags: '暢銷課程',
     total_hours: 45,
     level: '所有級別',

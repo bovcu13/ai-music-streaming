@@ -1,7 +1,7 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../share/primeng";
 import { course } from "../../../share/data/course";
-import { RouterOutlet } from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
 import { NgClass, NgForOf, NgStyle } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
@@ -27,7 +27,13 @@ export class HomeComponent {
   domainColor: any;
   course = course;
 
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private router: Router
+  ) {
+
+  }
 
   playPauseAudio(audioElement: HTMLAudioElement) {
     if (audioElement.paused) {
@@ -70,5 +76,9 @@ export class HomeComponent {
 
   openRegisterInNewTab() {
     window.open('/register', '_blank');
+  }
+
+  goToCourse(course: any) {
+    this.router.navigate(['/course', course.id]);
   }
 }
