@@ -23,6 +23,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { RatingModule } from 'primeng/rating';
 import { DialogModule } from 'primeng/dialog';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 
 export const PRIMENG_MODULES = [
@@ -50,5 +53,8 @@ export const PRIMENG_MODULES = [
   CheckboxModule,
   OverlayPanelModule,
   RatingModule,
-  DialogModule
+  DialogModule,
+  AvatarModule,
+  AvatarGroupModule,
+  ScrollPanelModule,
 ];
