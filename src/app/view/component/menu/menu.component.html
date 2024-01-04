@@ -1,14 +1,12 @@
 <div #parent class="flex flex-column gap-2" style="height: 100%">
   <div #firstBox class="box p-2">
       <div class="flex flex-column gap-2">
-      <p-button label="MSC Tech" routerLink="/"
-                [text]="true" icon="pi pi-compass text-xl"
+      <p-button label="SOHI Cloud" routerLink="/"
+                [text]="true"
                 styleClass="text-left text-white"
-                [style]="{ width: '100%' }"></p-button>
-      <p-button label="首頁" routerLink="/"
-                [text]="true" icon="pi pi-home mr-3"
-                styleClass="text-left text-white"
-                [style]="{ width: '100%' }"></p-button>
+                [style]="{ width: '100%' }">
+          <p-image src="assets/logo.png" styleClass="mr-3" [imageStyle]="{ width: '1.5rem' }"></p-image>
+      </p-button>
       <p-button label="AI小幫手" routerLink="/ai-assistant"
                 [text]="true" icon="pi pi-search mr-3"
                 styleClass="text-left text-white"

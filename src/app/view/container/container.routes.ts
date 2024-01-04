@@ -4,11 +4,13 @@ import { MusicPlayListComponent } from "./music-play-list/music-play-list.compon
 import { ContainerComponent } from "./container.component";
 import { VideoComponent } from '../page/page/video/video/video.component';
 import { AiAssistantComponent } from "./ai-assistant/ai-assistant.component";
+import { CourseViewComponent } from "./course/course-view/course-view.component";
 
 export const routes: Routes = [
   {
     path: '', component: ContainerComponent, children: [
       { path: '', component: HomeComponent },
+      { path: 'course/:id', component: CourseViewComponent },
       { path: 'watch/:id', component: MusicPlayListComponent },
       { path: 'ai-assistant', component: AiAssistantComponent },
       { path: 'video', component: VideoComponent },

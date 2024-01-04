@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../share/primeng";
 import { FormsModule } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { NgIf } from "@angular/common";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: 'app-footer',
   standalone: true,
   imports: [
     PRIMENG_MODULES,
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
@@ -16,7 +19,15 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class FooterComponent {
   value!: number;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) {
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 
 
