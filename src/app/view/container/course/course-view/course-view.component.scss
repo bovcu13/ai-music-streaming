@@ -1,0 +1,58 @@
+::ng-deep {
+  .p-tabview .p-tabview-panels {
+    background: transparent;
+    padding: 1.25rem;
+    border: 0 none;
+    color: white;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    background: transparent;
+    border-color: white;
+    color: white;
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    border: solid #424b57;
+    border-width: 0 0 2px 0;
+    border-color: transparent transparent #424b57 transparent;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 1.25rem;
+    font-weight: 700;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    transition: box-shadow 0.2s;
+    margin: 0 0 -2px 0;
+  }
+}
+
+.about-box {
+  padding: 25px;
+  border-radius: 6px;
+  border: 1px solid var(--surface-600);
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.about-text {
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.5s ease;
+
+  &:hover {
+    color: var(--cyan-100);
+    cursor: pointer;
+  }
+}
+
+.rotate {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate180 {
+  transform: rotate(-180deg);
+  transition: transform 0.3s ease-in-out;
+}
