@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../../share/primeng";
 import { items } from "../../../../share/data/admin-menu";
+import { Sidebar } from "primeng/sidebar";
 
 @Component({
   selector: 'app-menu',
@@ -12,5 +13,11 @@ import { items } from "../../../../share/data/admin-menu";
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-  items = items;
+  @ViewChild('sidebarRef') sidebarRef!: Sidebar;
+
+  closeCallback(e: any): void {
+    this.sidebarRef.close(e);
+  }
+
+  sidebarVisible: boolean = false;
 }

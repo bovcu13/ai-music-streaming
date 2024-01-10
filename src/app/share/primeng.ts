@@ -27,6 +27,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
 
 
 export const PRIMENG_MODULES = [
@@ -58,5 +59,6 @@ export const PRIMENG_MODULES = [
   AvatarModule,
   AvatarGroupModule,
   ScrollPanelModule,
-  MenubarModule
+  MenubarModule,
+  SidebarModule
 ];
