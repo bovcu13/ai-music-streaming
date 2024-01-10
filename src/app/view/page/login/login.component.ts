@@ -24,7 +24,7 @@ export class LoginComponent {
 
   adminLogin() {
     window.sessionStorage.setItem('user', 'admin');
-    this.router.navigate(['/']);
+    this.router.navigate(['/admin']);
   }
 
   studentLogin() {

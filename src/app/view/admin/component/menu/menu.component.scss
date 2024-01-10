@@ -1,0 +1,10 @@
+.avatar-wrapper {
+  border-radius: 50%;
+  padding: 5px;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;
+  }
+}

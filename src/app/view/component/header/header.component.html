@@ -11,7 +11,7 @@
               [text]="true"
               styleClass="text-400"></p-button>
   </div>
-  <div class="ml-auto flex gap-2">
+  <div *ngIf="!isLoggedIn()" class="ml-auto flex gap-2">
     <p-button label="註冊"
               [style]="{ height: '36px' }"
               [rounded]="true"
@@ -24,4 +24,25 @@
               routerLink="/login"
               styleClass="bg-white text-sm"></p-button>
   </div>
+  <div *ngIf="isLoggedIn()" class="ml-auto flex gap-2">
+    <p-avatar class="avatar-wrapper"
+              (click)="op.toggle($event)"
+              [label]="getDisplayUserName()"
+              shape="circle"></p-avatar>
+  </div>
 </div>
+
+<p-overlayPanel #op>
+  <ng-template pTemplate="content">
+    <div class="flex flex-column gap-2" [style]="{width: '10vw'}">
+      <div class="styled-box flex align-items-center justify-content-between p-2" routerLink="/">
+        <span class="text-sm">帳戶</span>
+        <i class="text-sm fa-solid fa-arrow-up-right-from-square"></i>
+      </div>
+      <div class="styled-box surface-border border-top-1 flex align-items-center gap-3 p-2"
+           (click)="logout()">
+        <span class="text-sm">登出</span>
+      </div>
+    </div>
+  </ng-template>
+</p-overlayPanel>
