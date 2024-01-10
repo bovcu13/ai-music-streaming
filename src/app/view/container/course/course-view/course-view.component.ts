@@ -22,7 +22,7 @@ declare var ColorThief: any;
 export class CourseViewComponent implements OnInit {
   course: any;
   mainColor: any;
-  isRotated: boolean[] = [false,false];
+  isRotated: boolean[] = [true,false];
   isHeart = false;
 
   constructor(

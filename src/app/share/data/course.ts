@@ -98,6 +98,67 @@ export const course = [
       "運用Tkinter製作基本桌機應用程式",
       "學習Python 3語法、比較與Python 2語法的不同"
     ],
+    content: [
+      {
+        name: 'Preparation',
+        total_units: 2,
+        total_duration: 60,
+        units: [
+          {
+            name: 'Learning Tips',
+            type: 'articles',
+            duration: 1
+          },
+          {
+            name: 'Course Resources',
+            type: 'articles',
+            duration: 3
+          }
+        ]
+      },
+      {
+        name: 'Chapter 0: Introduction to Python',
+        total_units: 7,
+        total_duration: 4980,
+        units: [
+          {
+            name: 'What is Python?',
+            type: 'videos',
+            duration: 595
+          },
+          {
+            name: 'Why Learning Python?',
+            type: 'videos',
+            duration: 1036
+          },
+          {
+            name: 'Quick Note',
+            type: 'articles',
+            duration: 29
+          },
+          {
+            name: '(Windows系統) 下載 Python 與 VS Code',
+            type: 'videos',
+            duration: 1308
+          },
+          {
+            name: '(macOS系統) 下載 Python 與 VS Code',
+            type: 'videos',
+            duration: 1413
+          },
+          {
+            name: 'What'+'s in this course?',
+            type: 'videos',
+            duration: 289
+          },
+          {
+            name: 'How to take notes?',
+            type: 'videos',
+            duration: 306
+          }
+        ]
+      }
+    ],
     rating: 4.7,
     total_reviews: 2076,
     price: 330,
