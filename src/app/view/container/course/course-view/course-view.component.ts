@@ -22,6 +22,8 @@ declare var ColorThief: any;
 export class CourseViewComponent implements OnInit {
   course: any;
   mainColor: any;
+  isRotated: boolean[] = [false,false];
+  isHeart = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,10 +36,12 @@ export class CourseViewComponent implements OnInit {
     this.getCourseData();
   }
 
-  isRotated: boolean[] = [false,false];
-
   toggleRotate(id: number) {
     this.isRotated[id] = !this.isRotated[id];
+  }
+
+  toggleHeart() {
+    this.isHeart = !this.isHeart;
   }
 
   getCourseData() {

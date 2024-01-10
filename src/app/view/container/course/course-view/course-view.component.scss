@@ -29,6 +29,20 @@
   }
 }
 
+.heart-icon {
+  color: var(--surface-400);
+  font-weight: bold;
+
+  &:hover {
+    color: #f08080;
+    cursor: pointer;
+  }
+}
+
+.fa-solid.fa-heart {
+  color: #f08080;
+}
+
 .about-box {
   padding: 25px;
   border-radius: 6px;
