@@ -29,6 +29,21 @@
   }
 }
 
+.ch-item {
+  padding: 10px;
+  border-radius: 6px;
+
+  &:hover {
+    background: rgba(#c2dfe3, 0.3);
+    cursor: pointer;
+  }
+
+  &.active {
+    background: rgba(#c2dfe3, 0.3);
+    font-weight: 500;
+  }
+}
+
 .heart-icon {
   color: var(--surface-400);
   font-weight: bold;

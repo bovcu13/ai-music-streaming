@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../../share/primeng";
 import { ActivatedRoute } from "@angular/router";
 import { CourseService } from "../../../../services/course.service";
-import { course } from "../../../../share/data/course";
 import { NgClass, NgForOf, NgIf } from "@angular/common";
 
 declare var ColorThief: any;
@@ -24,6 +23,8 @@ export class CourseViewComponent implements OnInit {
   mainColor: any;
   isRotated: boolean[] = [true,false];
   isHeart = false;
+  isActive: number | null = 0;
+  activeUnit: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,12 +45,17 @@ export class CourseViewComponent implements OnInit {
     this.isHeart = !this.isHeart;
   }
 
+  toggleActive(index: number) {
+    this.isActive = index;
+    this.activeUnit = this.course.content[index].units;
+  }
+
   getCourseData() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {
       this.course = this.courseService.getCourseById(id);
       this.getDominantColor(this.course.imageUrl);
-      console.log(this.course);
+      this.activeUnit = this.course.content[0].units;
     } else {
       console.log('id is null');
     }

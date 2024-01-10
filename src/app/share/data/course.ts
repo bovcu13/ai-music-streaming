@@ -63,6 +63,8 @@ export const course = [
     course_name: '2024 Python全攻略',
     type: ['開發', '程式語言', 'Python'],
     tags: '暢銷課程',
+    total_chapters: 24,
+    total_units: 208,
     total_hours: 45,
     total_articles: 18,
     downloads: 18,
@@ -124,12 +126,13 @@ export const course = [
           {
             name: 'What is Python?',
             type: 'videos',
-            duration: 595
+            duration: 595,
+            previewable: true
           },
           {
             name: 'Why Learning Python?',
             type: 'videos',
-            duration: 1036
+            duration: 1036,
           },
           {
             name: 'Quick Note',
@@ -147,9 +150,10 @@ export const course = [
             duration: 1413
           },
           {
-            name: 'What'+'s in this course?',
+            name: 'What' + 's in this course?',
             type: 'videos',
-            duration: 289
+            duration: 289,
+            previewable: true
           },
           {
             name: 'How to take notes?',
@@ -157,6 +161,18 @@ export const course = [
             duration: 306
           }
         ]
+      },
+      {
+        name: 'Chapter 1: Python Basics',
+      },
+      {
+        name: 'Chapter 2: Python Data Types',
+      },
+      {
+        name: 'Chapter 3: Python Control Flow',
+      },
+      {
+        name: 'Chapter 4: Python Functions',
       }
     ],
     rating: 4.7,
