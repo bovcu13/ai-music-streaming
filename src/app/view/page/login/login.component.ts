@@ -14,10 +14,21 @@ import { Router, RouterLink } from "@angular/router";
 })
 export class LoginComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   login() {
     window.sessionStorage.setItem('user', 'user');
+    this.router.navigate(['/']);
+  }
+
+  adminLogin() {
+    window.sessionStorage.setItem('user', 'admin');
+    this.router.navigate(['/']);
+  }
+
+  studentLogin() {
+    window.sessionStorage.setItem('user', 'student');
     this.router.navigate(['/']);
   }
 }
