@@ -29,6 +29,35 @@
   }
 }
 
+.ch-item {
+  padding: 10px;
+  border-radius: 6px;
+
+  &:hover {
+    background: rgba(#c2dfe3, 0.3);
+    cursor: pointer;
+  }
+
+  &.active {
+    background: rgba(#c2dfe3, 0.3);
+    font-weight: 500;
+  }
+}
+
+.heart-icon {
+  color: var(--surface-400);
+  font-weight: bold;
+
+  &:hover {
+    color: #f08080;
+    cursor: pointer;
+  }
+}
+
+.fa-solid.fa-heart {
+  color: #f08080;
+}
+
 .about-box {
   padding: 25px;
   border-radius: 6px;
@@ -42,7 +71,7 @@
   transition: color 0.5s ease;
 
   &:hover {
-    color: var(--cyan-100);
+    color: #6fffe9;
     cursor: pointer;
   }
 }

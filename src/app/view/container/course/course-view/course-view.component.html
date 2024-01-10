@@ -15,7 +15,8 @@
             </div>
           </div>
         </div>
-        <span class="white-space-nowrap overflow-hidden text-overflow-ellipsis" style="font-size: 48px;">{{ course.course_name }}</span>
+        <span class="white-space-nowrap overflow-hidden text-overflow-ellipsis"
+              style="font-size: 48px;">{{ course.course_name }}</span>
         <div class="flex gap-3 align-items-center">
           <p-tag value="{{course.tags}}" styleClass="bg-yellow-500"></p-tag>
           <span class="font-bold text-sm">
@@ -30,15 +31,16 @@
           <span class="text-sm text-300 line-through">$2,290</span>
           <span class="text-sm">86% 折扣</span>
         </div>
-        <div class="flex justify-content-between">
-          <p-button label="加入購物車"
-                    severity="secondary"
-                    styleClass="bg-white border-none"
-                    [style]="{width: '140px'}"></p-button>
-          <p-button icon="fa-regular fa-heart"
-                    [outlined]="true"
-                    severity="danger"
-                    styleClass="border-white text-white"></p-button>
+        <div class="flex justify-content-between w-full">
+          <div class="w-10">
+            <p-button label="加入購物車"
+                      severity="secondary"
+                      styleClass="w-full bg-white border-none"></p-button>
+          </div>
+          <div class="flex justify-content-center align-items-center w-1 heart-icon">
+            <i [ngClass]="isHeart ? 'text-lg fa-solid fa-heart' : 'text-lg fa-regular fa-heart'"
+               (click)="toggleHeart()"></i>
+          </div>
         </div>
         <p-button label="直接購買"
                   [outlined]="true"
@@ -114,13 +116,24 @@
         </div>
       </p-tabPanel>
       <p-tabPanel header="課程內容">
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-          Nemo enim
-          ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
-          ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-        </p>
+        <div class="flex">
+          <div class="col-4">
+            <p-card styleClass="bg-white" [style]="{color: '#000'}">
+              <h2>課程章節</h2>
+              <div class="flex flex-column gap-2">
+              <div class="ch-item"
+                   (click)="toggleActive(i)"
+                   *ngFor="let content of course.content; let i = index"
+                   [ngClass]="{'active': isActive === i}">
+                <span class="text-lg">{{ content?.name }}</span>
+              </div>
+              </div>
+            </p-card>
+          </div>
+          <div class="col-8">
+
+          </div>
+        </div>
       </p-tabPanel>
     </p-tabView>
   </div>
