@@ -8,6 +8,7 @@
   </div>
   <div class="ml-auto mr-4">
     <p-avatar class="avatar-wrapper"
+              (click)="op.toggle($event)"
               label="管"
               shape="circle"></p-avatar>
   </div>
@@ -58,3 +59,18 @@
     </div>
   </ng-template>
 </p-sidebar>
+
+<p-overlayPanel #op>
+  <ng-template pTemplate="content">
+    <div class="flex flex-column gap-2" [style]="{width: '10vw'}">
+      <div class="styled-box flex align-items-center justify-content-between p-2" routerLink="/">
+        <span class="text-sm">帳戶</span>
+        <i class="text-sm fa-solid fa-arrow-up-right-from-square"></i>
+      </div>
+      <div class="styled-box surface-border border-top-1 flex align-items-center gap-3 p-2"
+           (click)="logout()">
+        <span class="text-sm">登出</span>
+      </div>
+    </div>
+  </ng-template>
+</p-overlayPanel>
