@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { PRIMENG_MODULES } from "../../../share/primeng";
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { NgForOf } from "@angular/common";
+import { quest } from "../../../share/data/ai-assistant";
 
 @Component({
   selector: 'app-ai-assistant',
@@ -16,30 +17,13 @@ import { NgForOf } from "@angular/common";
 })
 export class AiAssistantComponent implements OnInit {
   @ViewChild('videoPlayer', { static: true }) videoPlayer!: ElementRef;
+  @ViewChild('scrollMe') private scrollMe!: ElementRef;
   myForm!: FormGroup;
+  quest = quest;
   filterStr: string = '';
   showvideo = false;
   videofont = false;
-  messages: any = [
-    {
-      message: 'Hello, I am a chatbot. What can I do for you?',
-      sender: 'bot',
-      showvideo: false,
-      videofont: false,
-    },
-    {
-      message: "video",
-      sender: 'startvideo',
-      showvideo: true,
-      videofont: false,
-    },
-    {
-      message: "videofont",
-      sender: 'startvideo',
-      showvideo: false,
-      videofont: true,
-    }
-  ]
+  messages: any = []
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({
@@ -49,6 +33,11 @@ export class AiAssistantComponent implements OnInit {
 
   ngOnInit() {
     // 如果videofont = true 就會跳到20秒播放
+  }
+
+  onEnter(event: any) {
+    event.preventDefault(); // 防止換行
+    this.onSearchInput();
   }
 
   onSearchInput() {
@@ -62,18 +51,15 @@ export class AiAssistantComponent implements OnInit {
         videofont: false,
       })
     } else if (searchInput == "videofont") {
-
       this.videofont = true
       const player = this.videoPlayer.nativeElement;
       player.currentTime = 20;
-
       this.messages.push({
         message: searchInput,
         sender: 'startvideo',
         showvideo: false,
         videofont: true,
       })
-
     } else {
 
       this.messages.push({
@@ -85,6 +71,11 @@ export class AiAssistantComponent implements OnInit {
 
     }
     this.myForm.get('searchInput')!.setValue('');
+    try {
+      setTimeout(() => {
+        this.scrollMe.nativeElement.scrollTop = this.scrollMe.nativeElement.scrollHeight;
+      }, 0);
+    } catch(err) { }
   }
 
 }
