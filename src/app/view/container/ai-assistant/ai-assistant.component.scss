@@ -10,3 +10,12 @@
     cursor: pointer;
   }
 }
+
+.tips-box {
+  border-radius: var(--border-radius);
+
+  &:hover {
+    transform: scale(0.98);
+    cursor: pointer;
+  }
+}
