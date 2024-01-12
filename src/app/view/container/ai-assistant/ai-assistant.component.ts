@@ -3,6 +3,7 @@ import { PRIMENG_MODULES } from "../../../share/primeng";
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { NgForOf } from "@angular/common";
 import { quest } from "../../../share/data/ai-assistant";
+import { tips } from "../../../share/data/ai-assistant";
 
 @Component({
   selector: 'app-ai-assistant',
@@ -20,6 +21,7 @@ export class AiAssistantComponent implements OnInit {
   @ViewChild('scrollMe') private scrollMe!: ElementRef;
   myForm!: FormGroup;
   quest = quest;
+  tips = tips;
   filterStr: string = '';
   showvideo = false;
   videofont = false;
@@ -75,7 +77,8 @@ export class AiAssistantComponent implements OnInit {
       setTimeout(() => {
         this.scrollMe.nativeElement.scrollTop = this.scrollMe.nativeElement.scrollHeight;
       }, 0);
-    } catch(err) { }
+    } catch (err) {
+    }
   }
 
 }

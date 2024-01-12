@@ -24,3 +24,15 @@ export const quest = [
     "questions": "學完2024網頁全端開發後，有哪些實際應用的場景或行業？"
   }
 ]
+
+export const tips = [
+  {
+    quest: "解釋HTML5和CSS3的角色。"
+  },
+  {
+    quest: "說明響應式設計的意義。"
+  },
+  {
+    quest: "說明JavaScript在網頁開發中的作用。"
+  }
+]
