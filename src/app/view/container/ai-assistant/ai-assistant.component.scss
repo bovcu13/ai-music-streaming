@@ -13,6 +13,7 @@
 
 .tips-box {
   border-radius: var(--border-radius);
+  transition: transform 0.2s ease;
 
   &:hover {
     transform: scale(0.98);
