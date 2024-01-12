@@ -1,3 +1,14 @@
 .avatar-wrapper:hover {
   cursor: pointer;
 }
+
+.styled-box {
+  border-radius: 3px;
+  .p-ink {
+    background: rgba(#3d5a80, 0.2);
+  }
+  &:hover {
+    background: rgba(#3d5a80, 0.2);
+    cursor: pointer;
+  }
+}
