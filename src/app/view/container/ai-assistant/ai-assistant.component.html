@@ -1,89 +1,85 @@
-<div #scrollMe class="col-12 overflow-y-auto md:col-12 lg:col-12" style="height: calc(100% - 100px); position: relative">
+<p-toast></p-toast>
+<div #scrollMe class="col-12 overflow-y-auto md:col-12 lg:col-12"
+     style="height: calc(100% - 100px); position: relative">
   <!-- 隱性塊狀對話欄 -->
   <div class="flex justify-content-center align-items-center gap-3 font-bold text-2xl">
     <i class="fa-solid fa-robot"></i>
     <span>GPT 課程小幫手</span>
   </div>
   <div class="grid mt-4">
-    <div *ngFor="let item of quest" class="col-4">
-      <div class="flex flex-column gap-2 h-full p-2 quest-box">
+    <div *ngFor="let item of quest" class="col-4"
+         (click)="myForm.controls['searchInput'].setValue(item.questions); onSearchInput()">
+      <div class="flex flex-column gap-2 h-full p-3 quest-box">
         <span class="font-bold">{{ item.category }}</span>
         <span class="text-sm">{{ item.questions }}</span>
       </div>
     </div>
   </div>
-  <div class="p-1 line-height-3">
+  <div class="flex flex-column gap-3 p-1">
     <div *ngFor="let message of messages" class="flex flex-column gap-3">
-      @if (message.sender === 'bot') {
-        <div class="flex justify-content-start align-items-start gap-2">
-          <p-avatar icon="pi pi-user" shape="circle"></p-avatar>
-          <div class="flex flex-column align-items-start gap-2">
-            <span class="text-xs font-semibold">ChatBot</span>
+      @if (message.sender !== 'bot') {
+        <div class="flex justify-content-end">
+          <div class="user-says-box">
             {{ message.message }}
           </div>
         </div>
       } @else {
-        <div class="flex justify-content-end align-items-start gap-2">
-          <div class="flex flex-column align-items-end gap-2">
-            <span class="text-xs font-semibold">Me</span>
+        <div class="flex justify-content-start">
+          <div class="bot-says-box">
             {{ message.message }}
           </div>
-          <p-avatar icon="pi pi-user" shape="circle"
-                    [style]="{'background-color': '#9c27b0', 'color': '#ffffff'}"></p-avatar>
         </div>
-      }
-      @if (message.showvideo) {
-        <div class="flex justify-content-start align-items-start gap-2">
-          <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
-          <div class="flex flex-column align-items-start gap-2">
-            <span class="text-xs font-semibold">ChatBot</span>
-            app-startvideo
-          </div>
-        </div>
-      } @else if (message.videofont || this.videofont) {
-        <div class="flex justify-content-start align-items-start gap-2">
-          <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
-          <div class="flex flex-column align-items-start gap-2">
-            <span class="text-xs font-semibold">ChatBot</span>
-            <video #videoPlayer class="w-20rem" crossorigin="anonymous" controls>
-              <source
-                src="https://public-rethel.s3.ap-southeast-1.amazonaws.com/video/standard-captions-example.mp4"
-                type="video/mp4"/>
-              <track kind="captions"
-                     src="https://public-rethel.s3.ap-southeast-1.amazonaws.com/video/standard-captions-example.vtt"
-                     srclang="en" label="English" default/>
-            </video>
-          </div>
-        </div>
-      } @else {
-        <div class="flex justify-content-start align-items-start gap-2">
-          <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
-          <div class="flex flex-column align-items-start gap-2">
-            <span class="text-xs font-semibold">ChatBot</span>
-            notfound
+        <div *ngIf="!isTyping" class="flex justify-content-start">
+          <div class="flex text-300 gap-3 pl-2">
+            <i class="icon-hover"
+               [class]="thumbsUpStatus[message.id] ? 'fa-solid fa-thumbs-up' : 'fa-regular fa-thumbs-up'"
+               (click)="toggleThumbsUp(message.id)"></i>
+            <i class="icon-hover"
+               [class]="thumbsDownStatus[message.id] ? 'fa-solid fa-thumbs-down' : 'fa-regular fa-thumbs-down'"
+               (click)="toggleThumbsDown(message.id)"></i>
+            <i class="icon-hover fa-regular fa-copy" (click)="copy(message.message)"></i>
+            <i class="icon-hover fa-solid fa-rotate-left"></i>
           </div>
         </div>
       }
+      @if (message.showVideo) {
+        <div class="flex justify-content-start">
+          <div class="bot-says-box">
+            startvideo
+          </div>
+        </div>
+      }
+      <!--      <div class="flex gap-2" style="position: absolute; bottom: 0;">-->
+      <!--        <div *ngFor="let item of tips" class="p-2 text-sm tips-box border-1">-->
+      <!--          {{ item.quest }}-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
-  </div>
-  <div class="flex gap-2" style="position: absolute; bottom: 0; right: 10%">
-    <div *ngFor="let item of tips" class="p-2 text-sm tips-box border-1">
-      {{ item.quest }}
+    <div *ngIf="isTyping" class="flex justify-content-center">
+      <p-button label="停止回應"
+                icon="text-xs pi pi-stop"
+                [outlined]="true"
+                styleClass="text-xs"></p-button>
     </div>
   </div>
 </div>
-<div class="col-12 md:col-12 lg:col-12 xl:col-12" style="height: 100px">
+<div class="col-12 md:col-12 lg:col-12 xl:col-12" style="height: 100px;">
   <form [formGroup]="myForm">
-    <div class="flex align-items-start gap-2">
-      <p-button icon="fa-solid fa-plus" [rounded]="true"></p-button>
-      <div class="flex gap-2 align-items-center p-2 w-full border-round">
-      <textarea class="w-full" type="text" style="resize: none;"
+    <div class="flex align-items-start gap-2 p-2 border-1 border-round surface-border">
+      <p-button icon="text-sm fa-solid fa-plus"
+                pTooltip="開新聊天" tooltipPosition="top" (click)="messages = []"
+                styleClass="w-2rem h-2rem"></p-button>
+      <textarea class="w-full border-none no-focus" type="text" style="resize: none; background: transparent;"
                 pInputTextarea formControlName="searchInput"
                 (keydown.enter)="onEnter($event)"
                 placeholder="Search"></textarea>
-        <p-button (click)="onSearchInput()" [text]="true">
-          <i class="fa-regular fa-paper-plane"></i>
-        </p-button>
+      <div class="flex flex-column gap-2">
+        <p-button icon="text-sm fa-solid fa-microphone-lines"
+                  styleClass="w-2rem h-2rem"></p-button>
+        <p-button icon="text-sm fa-regular fa-paper-plane"
+                  styleClass="w-2rem h-2rem"
+                  [disabled]="myForm.controls['searchInput'].value === ''"
+                  (click)="onSearchInput()"></p-button>
       </div>
     </div>
   </form>
