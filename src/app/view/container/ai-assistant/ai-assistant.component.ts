@@ -73,7 +73,7 @@ export class AiAssistantComponent implements OnInit {
           message: '',
           sender: 'bot'
         });
-        this.typeMessage('您好，很高興為您服務！😝', 100)
+        this.typeMessage('您好，很高興為您服務！😝 <br>其他您可能喜歡的內容：<br><a href="https://reurl.cc/K40V3y">學習應援團 一萬堂熱門課程在家免費學│聯成電腦</a>', 100)
         this.scrollToBottom();
       }, 1000); // 延遲1秒後執行
     }
