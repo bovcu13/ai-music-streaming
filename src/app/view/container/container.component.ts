@@ -5,6 +5,7 @@ import { PRIMENG_MODULES } from "../../share/primeng";
 import { MenuComponent } from "../component/menu/menu.component";
 import { HeaderComponent } from "../component/header/header.component";
 import { FooterComponent } from "../component/footer/footer.component";
+import { AiAssistantComponent } from "./ai-assistant/ai-assistant.component";
 
 @Component({
   selector: 'app-container',
@@ -14,11 +15,16 @@ import { FooterComponent } from "../component/footer/footer.component";
     PRIMENG_MODULES,
     MenuComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AiAssistantComponent
   ],
   templateUrl: './container.component.html',
   styleUrl: './container.component.scss'
 })
 export class ContainerComponent {
+  chatVisible: boolean = false;
 
+  showChatDialog() {
+    this.chatVisible = true;
+  }
 }
