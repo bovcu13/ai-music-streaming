@@ -1,0 +1,62 @@
+.quest-box {
+  background: #FFF;
+  color: #000;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.02), 0px 0px 2px rgba(0, 0, 0, 0.05), 0px 1px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(0.98);
+    cursor: pointer;
+  }
+}
+
+.tips-box {
+  border-radius: var(--border-radius);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(0.98);
+    cursor: pointer;
+  }
+}
+
+.user-says-box {
+  max-width: 70%;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background: rgba(#00a8e8, 1);
+  border-radius: 6px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.02), 0px 0px 2px rgba(0, 0, 0, 0.05), 0px 1px 4px rgba(0, 0, 0, 0.08);
+  transform: translateY(100%); // Move the element out of view initially
+  animation: slide-up 0.3s ease forwards; // Apply the animation
+}
+
+.bot-says-box {
+  max-width: 70%;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background: rgba(#fff, 0.3);
+  border-radius: 6px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.02), 0px 0px 2px rgba(0, 0, 0, 0.05), 0px 1px 4px rgba(0, 0, 0, 0.08);
+  transform: translateY(100%);
+  animation: slide-up 0.3s ease forwards;
+}
+
+.no-focus:enabled:hover {
+  border-color: transparent;
+}
+
+.no-focus:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

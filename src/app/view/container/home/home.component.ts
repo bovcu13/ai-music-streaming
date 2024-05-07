@@ -22,6 +22,7 @@ declare var ColorThief: any;
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  // test github commit
   loginDialog = false;
   domainImg: any;
   domainColor: any;

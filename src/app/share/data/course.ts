@@ -63,6 +63,8 @@ export const course = [
     course_name: '2024 Python全攻略',
     type: ['開發', '程式語言', 'Python'],
     tags: '暢銷課程',
+    total_chapters: 24,
+    total_units: 208,
     total_hours: 45,
     total_articles: 18,
     downloads: 18,
@@ -97,6 +99,81 @@ export const course = [
       "使用基本的Python套件Flask來製作網頁伺服器",
       "運用Tkinter製作基本桌機應用程式",
       "學習Python 3語法、比較與Python 2語法的不同"
+    ],
+    content: [
+      {
+        name: 'Preparation',
+        total_units: 2,
+        total_duration: 60,
+        units: [
+          {
+            name: 'Learning Tips',
+            type: 'articles',
+            duration: 1
+          },
+          {
+            name: 'Course Resources',
+            type: 'articles',
+            duration: 3
+          }
+        ]
+      },
+      {
+        name: 'Chapter 0: Introduction to Python',
+        total_units: 7,
+        total_duration: 4980,
+        units: [
+          {
+            name: 'What is Python?',
+            type: 'videos',
+            duration: 595,
+            previewable: true
+          },
+          {
+            name: 'Why Learning Python?',
+            type: 'videos',
+            duration: 1036,
+          },
+          {
+            name: 'Quick Note',
+            type: 'articles',
+            duration: 29
+          },
+          {
+            name: '(Windows系統) 下載 Python 與 VS Code',
+            type: 'videos',
+            duration: 1308
+          },
+          {
+            name: '(macOS系統) 下載 Python 與 VS Code',
+            type: 'videos',
+            duration: 1413
+          },
+          {
+            name: 'What' + 's in this course?',
+            type: 'videos',
+            duration: 289,
+            previewable: true
+          },
+          {
+            name: 'How to take notes?',
+            type: 'videos',
+            duration: 306
+          }
+        ]
+      },
+      {
+        name: 'Chapter 1: Python Basics',
+      },
+      {
+        name: 'Chapter 2: Python Data Types',
+      },
+      {
+        name: 'Chapter 3: Python Control Flow',
+      },
+      {
+        name: 'Chapter 4: Python Functions',
+      }
     ],
     rating: 4.7,
     total_reviews: 2076,

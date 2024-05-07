@@ -6,8 +6,16 @@
     <div style="height: 60px">
       <app-header></app-header>
     </div>
-    <div class="content-box p-3" style="height: calc(100% - 60px)">
+    <div class="content-box p-3" style="height: calc(100% - 60px); position: relative">
       <router-outlet></router-outlet>
+      <p-button icon="fa-regular fa-comments"
+                [rounded]="true"
+                (click)="showChatDialog()"
+                [style]="{position: 'absolute', right: '1rem', bottom: '1rem'}"></p-button>
+      <p-dialog [(visible)]="chatVisible" position="bottomright"
+                [style]="{position: 'absolute', right: '1rem', bottom: '6rem', width: '30vw', height: '70vh'}">
+        <app-ai-assistant></app-ai-assistant>
+      </p-dialog>
     </div>
   </div>
   <div class="col-12" style="height: 76px">
